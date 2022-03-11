@@ -54,7 +54,7 @@ const Home = () => {
                         </Text>
                         <Button title={'자세히 보기'}
                                 color={"#194ff"}
-                            onPress={() => navigation.navigate("Detail", { id:tv.id})} 
+                            onPress={() => navigation.navigate("Detail", { id:tv.id})}
                         />
                     </View>
                 ))}
