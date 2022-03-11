@@ -1,6 +1,8 @@
 import React, {useState,useEffect} from 'react';
-import {View,Text} from "react-native";
+import {ScrollView,View,Text, Button} from "react-native";
 import axios from 'axios';
+import {COLORS, SIZES} from "./constants";
+
 const Home = () => {
 
     //1.그릇
@@ -26,18 +28,36 @@ const Home = () => {
 
 
     return (
-        <View
-            style={{
-                flex:1,
-                justifyContent:'center',
-                alignItems:'center'
-            }}
-        >
+        <ScrollView>
                 {tvs.map((tv) => (
-                    <Text key={tv.id}> {tv.original_name} </Text>
+                    <View
+                        key={tv.id}
+                        style={{
+                            flex:1,
+                            alignItems:'center',
+                            justifyContent:'center',
+                            margin:5
+                        }}
+                    >
+                        <Text
+                            style={{
+                                color: COLORS.lightOrange ,
+                                fontSize:SIZES.body4
+                            }}
+                        >
+                            {tv.original_name}
+                        </Text>
+                        <Text style={{fontSize:SIZES.base}}>
+                            {tvs.overview}
+                        </Text>
+                        <Button title={'자세히 보기'}
+                                color={"#194ff"}
+                            onPress={() => alert("자세히보기")}
+                        />
+                    </View>
                 ))}
 
-        </View>
+        </ScrollView>
     );
 };
 
