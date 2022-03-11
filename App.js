@@ -1,7 +1,7 @@
 import React from 'react';
 import {NavigationContainer} from "@react-navigation/native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
-import {Profile} from "./screens";
+import ProfileStack from "./stacks/ProfileStack";
 import HomeStack from "./stacks/HomeStack";
 
 
@@ -17,7 +17,13 @@ const App = () => {
                     headerShown:false
                 }}
             />
-            <Tab.Screen name='Profile' component={Profile}/>
+            <Tab.Screen
+                name='Profile'
+                component={ProfileStack}
+                options={{
+                    headerShown:false
+                }}
+            />
         </Tab.Navigator>
     </NavigationContainer>
     );
