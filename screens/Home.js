@@ -1,10 +1,12 @@
 import React, {useState,useEffect} from 'react';
 import {ScrollView,View,Text, Button} from "react-native";
+import {useNavigation} from "@react-navigation/native" //화면 옮겨주는 훅
 import axios from 'axios';
 import {COLORS, SIZES} from "./constants";
 
 const Home = () => {
 
+    const navigation = useNavigation();
     //1.그릇
     const [tvs, setTvs] = useState([])
 
@@ -52,7 +54,7 @@ const Home = () => {
                         </Text>
                         <Button title={'자세히 보기'}
                                 color={"#194ff"}
-                            onPress={() => alert("자세히보기")}
+                            onPress={() => navigation.navigate("Detail", { id:tv.id})} 
                         />
                     </View>
                 ))}
